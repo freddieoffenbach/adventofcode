@@ -4,20 +4,16 @@ with open('input.txt', 'r') as file:
 sum = 0
 
 for line in lines:
-    minimum = 1
-    bag = {}
+    min = 1
+    bag = {'red': 0, 'green': 0, 'blue': 0}
     id, sets = line[5:].split(':')
-    sets = sets.split(';')
-    for set in sets:
-        cubes = set.split(',')
-        for cube in cubes:
-            n, color = (cube.split())
-            bag_n = bag.get(color)
-            if bag_n is None:
-                bag_n = 0
-            bag[color] = max(int(n), bag_n)
+    for set in sets.split(';'):
+        for cube in set.split(','):
+            n, c = cube.split()
+            b = bag.get(c)
+            bag[c] = max(int(n), b)
     for n in bag.values():
-        minimum *= n
-    sum += minimum
+        min *= n
+    sum += min
 
 print(sum) # 63542
