@@ -9,8 +9,8 @@ for line in lines:
     id, sets = line[5:].split(':')
     for set in sets.split(';'):
         for cube in set.split(','):
-            n, color = cube.split()
-            if int(n) > bag.get(color):
+            n, c = cube.split()
+            if int(n) > bag.get(c):
                 is_possible = False
     if is_possible:
         sum += int(id)
