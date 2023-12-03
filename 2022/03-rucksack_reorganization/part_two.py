@@ -1,29 +1,15 @@
 with open('input.txt', 'r') as file:
     lines = file.readlines()
 
-lines = [
-    'vJrwpWtwJgWrhcsFMMfFFhFp',
-    'jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL',
-    'PmmdzqPrVvPwwTWBwg',
-    'wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn',
-    'ttgJtRGJQctTZtZT',
-    'CrZsJsPPZsGzwwsLwLmpwMDw'
-]
-
 sum = 0
-types = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-priorites = []
-for n in range(1, 53):
-    priorites.append(n)
-items = dict(zip(types, priorites))
 
-for line in lines:
-    x = int(len(line) / 2)
-    comp1 = line[:x]
-    comp2 = line[x:]
-    for c in comp1:
-        if c in comp2:
-            sum += items[c]
+for x in range(0, len(lines), 3):
+    for c in lines[x]:
+        if c in lines[x + 1] and c in lines[x + 2]:
+            if c.islower():
+                sum += ord(c) - 96
+            else:
+                sum += ord(c) - 38
             break
 
-print(sum) # 7763
+print(sum) # 2569
