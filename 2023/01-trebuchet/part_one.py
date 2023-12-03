@@ -5,9 +5,9 @@ sum = 0
 
 for line in lines:
     digits = []
-    for char in line:
-        if char.isdigit():
-            digits.append(char)
+    for c in line:
+        if c.isdigit():
+            digits.append(c)
     sum += int(digits[0] + digits[-1])
 
 print(sum) # 56042
