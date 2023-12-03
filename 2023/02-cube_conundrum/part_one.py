@@ -7,10 +7,8 @@ bag = {'red': 12, 'green': 13, 'blue': 14}
 for line in lines:
     is_possible = True
     id, sets = line[5:].split(':')
-    sets = sets.split(';')
-    for set in sets:
-        cubes = set.split(',')
-        for cube in cubes:
+    for set in sets.split(';'):
+        for cube in set.split(','):
             n, color = (cube.split())
             if int(n) > bag.get(color):
                 is_possible = False
